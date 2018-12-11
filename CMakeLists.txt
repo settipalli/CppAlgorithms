@@ -17,6 +17,9 @@ include_directories(include)
 # the variable SOURCES
 file(GLOB SOURCES "src/*.cpp")
 
+# add the folder where google test source files are saved
+add_subdirectory(test/lib/googletest-1.8.1)
+
 # use the ${SOURCES} variable created by file(GLOB...) command rather than an explicit reference to each source file to
 # build the final executable
 # add_executable(CppAlgorithms ${SOURCES})
