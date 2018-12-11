@@ -3,6 +3,9 @@ project(CppAlgorithms)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# set the build type to be a release build
+set(CMAKE_BUILD_TYPE Release)
+
 # bring headers into the project
 include_directories(include)
 
@@ -16,4 +19,14 @@ file(GLOB SOURCES "src/*.cpp")
 
 # use the ${SOURCES} variable created by file(GLOB...) command rather than an explicit reference to each source file to
 # build the final executable
-add_executable(CppAlgorithms ${SOURCES})
+# add_executable(CppAlgorithms ${SOURCES})
+
+# generate a library (libCppAlgorithms.so) from the sources
+# the library is built as a shared library using the SHARED flag. Other options are STATIC and MODULE
+add_library(CppAlgorithms SHARED ${SOURCES})
+
+# set the location where the library would be installed
+# use `sudo make install` to install the library
+# install(TARGETS CppAlgorithms DESTINATION /usr/lib)
+
+# note: use the `ldd` command to display the shared library dependencies
