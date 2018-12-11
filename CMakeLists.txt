@@ -23,10 +23,16 @@ file(GLOB SOURCES "src/*.cpp")
 
 # generate a library (libCppAlgorithms.so) from the sources
 # the library is built as a shared library using the SHARED flag. Other options are STATIC and MODULE
-add_library(CppAlgorithms SHARED ${SOURCES})
+# note: use the `ldd` command to display the shared library dependencies
+# add_library(CppAlgorithms SHARED ${SOURCES})
+
+# generates a static library (libCppAlgorithms.a)
+# use any archive command (e.g. `ar -t`) to list the contents of the static library
+add_library(CppAlgorithms STATIC ${SOURCES})
 
 # set the location where the library would be installed
 # use `sudo make install` to install the library
 # install(TARGETS CppAlgorithms DESTINATION /usr/lib)
 
-# note: use the `ldd` command to display the shared library dependencies
+# note: use the GNU `nm` command to list the symbols in the object files and binaries.
+# the chars T, U and R listed in the output of `nm` map to 'Code', 'Undefined' and 'Read-only data' respectively.
