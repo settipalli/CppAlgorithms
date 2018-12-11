@@ -56,10 +56,11 @@ CTestTestfile.cmake
 .idea/dynamic.xml
 .idea/uiDesigner.xml
 
-## File-based project format:
+# File-based project format:
 *.iws
-
-## Plugin-specific files:
 
 # IntelliJ
 /out/
+
+# Others
+**/.DS_Store
