@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-# create a variable to represent the project name
-set(PROJECT_NAME "CppAlgorithms")
-
-project(PROJECT_NAME)
+project(CppAlgorithms)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -26,7 +23,7 @@ add_subdirectory(test/lib/googletest-1.8.1)
 
 # use the ${SOURCES} variable created by file(GLOB...) command rather than an explicit reference to each source file to
 # build the final executable
-add_executable(PROJECT_NAME ${SOURCES})
+add_executable(CppAlgorithms ${SOURCES})
 
 # generate a library (libCppAlgorithms.so) from the sources
 # the library is built as a shared library using the SHARED flag. Other options are STATIC and MODULE
@@ -35,7 +32,7 @@ add_executable(PROJECT_NAME ${SOURCES})
 
 # generates a static library (libCppAlgorithms.a)
 # use any archive command (e.g. `ar -t`) to list the contents of the static library
-#add_library(PROJECT_NAME STATIC ${SOURCES})
+#add_library(CppAlgorithms STATIC ${SOURCES})
 
 # set the location where the library would be installed
 # use `sudo make install` to install the library
@@ -45,7 +42,7 @@ add_executable(PROJECT_NAME ${SOURCES})
 # the chars T, U and R listed in the output of `nm` map to 'Code', 'Undefined' and 'Read-only data' respectively.
 
 # link your library with google test library
-target_link_libraries(PROJECT_NAME gtest gtest_main)
+target_link_libraries(CppAlgorithms gtest gtest_main)
 
 #link your library with google mock library
-target_link_libraries(PROJECT_NAME gmock gmock_main)
+target_link_libraries(CppAlgorithms gmock gmock_main)
